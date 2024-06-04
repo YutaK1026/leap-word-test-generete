@@ -5,6 +5,7 @@
 
 ```
 |- libs
+  |- hooks/　# api用のフック、useContextなど
   |- user
     ./user.ts
   |- type

@@ -1,14 +1,16 @@
 # features
 ドメイン毎に機能をまとめるもの
 
-共通化したい機能を書くのではなく、個別のUIを記述する。
+共通化したい機能を書くのではなく、個々のUIを記述する。
+
+componentsを利用して記述する。
 ```
 |- features
-  |- words
-    |- components #個々のUIを分割 Atomic designの使用
+  |- WordList
+    |- parts #個々のUIを分割 Atomic designの使用 必要ならば追加する。
       ./~~.tsx
     |- hooks #関数などの処理を記述
-    |- template #UIをまとめる。Atomic designでいうところの分子レベルにする
-    ./Word.tsx
+    |- presentations #UIをまとめる。Atomic designでいうところの分子レベルにする
+    ./index.tsx
   |- ~~
 ```
