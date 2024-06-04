@@ -1,23 +1,79 @@
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import dynamic from "next/dynamic";
+import { StyleSheet } from "@react-pdf/renderer";
 
 export const usePdf = () => {
+  const PDFViewer = dynamic(
+    () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
+    {
+      ssr: false,
+    }
+  );
 
-  const pdfDownloadHandler = (documentId: string) => {
-    const target = document.getElementById(documentId)
-    if (target === null) return;
-    html2canvas(target, {
-      scale: 2.5,
-      height: 100
-    }).then((canvas) => {
-      const imgData = canvas.toDataURL('img/png', 1.0);
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 5, 10, canvas.width/18, canvas.height/18);
-      pdf.save(`test.pdf`);
-    });
-  };
-  
   return {
-    pdfDownloadHandler
+    PDFViewer
   }
 }
+
+export const usePdfStyle = () => {
+  const styles = StyleSheet.create({
+    page: {
+      padding: 30,
+      fontSize: 11,
+      fontFamily: "NotoSansJP",
+    },
+    header: {
+      fontSize: 24,
+      marginBottom: 0,
+      fontWeight: "bold",
+      textAlign: "center",
+    },
+    details: {
+      marginBottom: 30,
+    },
+    detailItem: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+    },
+    itemsTable: {
+      display: "flex",
+      width: "auto",
+      borderStyle: "solid",
+      borderWidth: 1,
+      borderRightWidth: 0,
+      borderBottomWidth: 0,
+    },
+    tableRow: {
+      margin: "auto",
+      flexDirection: "row",
+    },
+    tableColHeader: {
+      width: "20%",
+      borderStyle: "solid",
+      borderWidth: 1,
+      textAlign: "center",
+      borderLeftWidth: 0,
+      borderTopWidth: 0,
+      fontWeight: "bold",
+      padding: 5,
+    },
+    tableCol: {
+      width: "20%",
+      borderStyle: "solid",
+      borderWidth: 1,
+      textAlign: "center",
+      borderLeftWidth: 0,
+      borderTopWidth: 0,
+      padding: 5,
+    },
+    textVertical: {
+      flexDirection: "column",
+    },
+    company: {
+      marginTop: 10,
+    },
+  })
+
+  return {
+    styles
+  }
+};

@@ -40,6 +40,6 @@ export default function Header() {
           <LoginButton />
         </nav>
       </header>
-    </div >
+    </div>
   )
 }
