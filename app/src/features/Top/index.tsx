@@ -1,14 +1,22 @@
+import ContentBox from "./presentation/content-box"
+
+const array = ["list", "list", "list", "list", "list", "list", "list", "list",]
+
 export default function TopPage() {
   return (
-    <div className="grid grid-cols-4 gap-4 m-10">
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
-      <div className="w-30 h-20 bg-blue-500">item box</div>
+    <div className="m-10">
+      <div className="text-xl m-5">
+        Contents List
+      </div>
+      <div className="grid grid-cols-4 gap-4">
+        {
+          array.map((item: string) => {
+            return (
+              <ContentBox itemName={item} />
+            )
+          })
+        }
+      </div>
     </div>
   )
 }
