@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 import LoginButton from "./parts/login-button"
 import LinkItem from "./parts/link-item";
-import HeaderIconTitle from "./presentation/header-icon-title";
+import HeaderIconTitle from "./presentations/header-icon-title";
 import { useHeader } from "./hooks"
 import { LinkType } from "./hooks"
 

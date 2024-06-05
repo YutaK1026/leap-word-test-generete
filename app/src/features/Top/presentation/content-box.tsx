@@ -14,7 +14,8 @@ export default function ContentBox(props: { itemName: string }) {
     "h-20",
     "bg-main",
     "hover:bg-link-hover",
-    "rounded-md"
+    "rounded-md",
+    "shadow"
   )
 
   return (
