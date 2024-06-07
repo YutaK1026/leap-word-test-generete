@@ -2,7 +2,7 @@
 import { usePdf } from '@/features/Pdf/hooks/index';
 import PdfComponent from '@/features/Pdf/presentations/pdf';
 
-export function PdfPage() {
+export default function PdfPage() {
   const { PDFViewer } = usePdf()
 
   return (
